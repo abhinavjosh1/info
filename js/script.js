@@ -4,37 +4,45 @@ document.addEventListener("DOMContentLoaded", () => {
   const links = document.querySelectorAll("nav a");
   const sections = document.querySelectorAll(".content-section");
 
+  // const toggle = document.getElementById("themeToggle");
+
   /* APPLY SAVED THEME */
   const savedTheme = localStorage.getItem("theme");
   if (savedTheme === "dark") {
-    body.classList.add("dark");
+    document.body.classList.add("dark");
+    toggle.textContent = "☀︎"; 
+    toggle.classList.remove("light");
+    toggle.classList.add("dark");
+  } else {
+    toggle.textContent = "◐";
+    toggle.classList.remove("dark");
+    toggle.classList.add("light");
   }
 
   /* THEME TOGGLE */
-  if (toggle) {
-    toggle.textContent = body.classList.contains("dark") ? "☀️" : "🌙";
+  toggle.addEventListener("click", () => {
+    document.body.classList.toggle("dark");
+    const isDark = document.body.classList.contains("dark");
 
-    toggle.addEventListener("click", () => {
-      body.classList.toggle("dark");
-      const isDark = body.classList.contains("dark");
+    toggle.textContent = isDark ? "☀︎" : "◐";
+    toggle.classList.toggle("dark", isDark);
+    toggle.classList.toggle("light", !isDark);
 
-      toggle.textContent = isDark ? "☀️" : "🌙";
-      localStorage.setItem("theme", isDark ? "dark" : "light");
-    });
-  }
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+  });
 
   /* TAB SWITCHING */
-  links.forEach(link => {
-    link.addEventListener("click", e => {
+  links.forEach((link) => {
+    link.addEventListener("click", (e) => {
       e.preventDefault();
 
       const targetId = link.dataset.section;
       if (!targetId) return;
 
-      links.forEach(l => l.classList.remove("active"));
+      links.forEach((l) => l.classList.remove("active"));
       link.classList.add("active");
 
-      sections.forEach(section => {
+      sections.forEach((section) => {
         section.classList.toggle("active", section.id === targetId);
       });
     });
@@ -45,16 +53,19 @@ document.addEventListener("DOMContentLoaded", () => {
   if (defaultTab) {
     defaultTab.click();
   } else {
-    const firstTab = document.querySelector('nav a[data-section]');
+    const firstTab = document.querySelector("nav a[data-section]");
     if (firstTab) firstTab.click();
   }
 
   /* VISITOR COUNTER */
-  fetch("https://api.counterapi.dev/v1/abhinav-joshis-team/portfolio-visits/up", {
-    cache: "no-store"
-  })
-    .then(res => res.json())
-    .then(data => {
+  fetch(
+    "https://api.counterapi.dev/v1/abhinav-joshis-team/portfolio-visits/up",
+    {
+      cache: "no-store",
+    },
+  )
+    .then((res) => res.json())
+    .then((data) => {
       const el = document.getElementById("visit-count");
       if (el) el.textContent = data.count;
     })
