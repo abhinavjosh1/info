@@ -8,12 +8,13 @@ document.addEventListener("DOMContentLoaded", () => {
       container.innerHTML = items
         .filter(item => item.disabled !== true)
         .map(item => `
-          <div class="project-card">
-            <div class="project-text">
+          <div class="timeline-card">
+            <div class="timeline-text">
               <h3>${item.title}</h3>
-              <p class="project-subtitle">${item.subtitle}</p>
-              <span class="project-meta">${item.meta}</span>
-
+              <div class="timeline-header">
+                <p class="timeline-subtitle">${item.subtitle}</p>
+                <span class="timeline-meta">${item.meta}</span>
+              </div>
               ${item.points?.length
                 ? `<ul>
                     ${item.points.map(p => `<li>${p}</li>`).join("")}

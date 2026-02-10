@@ -4,17 +4,19 @@
     "title": "PhD Researcher",
     "subtitle": "Sardar Vallabhbhai National Institute of Technology, Surat (SVNIT)",
     "meta": "2025 – Present",
-    "points": [
-    ]
+    "points": []
   },
   {
     "disabled": false,
     "title": "Software Engineer",
-    "subtitle": "Qbit Labs Pvt. Ltd, Gurugram",
+    "subtitle": "Product Engineering Startup, Gurugram",
     "meta": "2023 – 2025",
     "points": [
-
-    ]
+              "Developed an operator-facing GUI for high-speed data transfer and real-time monitoring on Zynq-7000 platforms, improving real-time monitoring and usability.",
+              "Implemented UART and Ethernet communication with performance and resource optimization.",
+              "Supported system integration and end-to-end performance tuning.",
+              "Contributed to the design and refinement of system-level graphical interfaces."
+              ]
   },
   {
     "disabled": false,
@@ -22,6 +24,22 @@
     "subtitle": "Netaji Subhas University of Technology, East Campus",
     "meta": "2019 – 2023",
     "points": [
-    ]
+              "Graduated with CGPA: 8.4.",
+              "Co-Coordinator, Institution Innovation Council (IIC).",
+              "Executive Member, Student Activities Forum (SAF).",
+              "Social Media Coordinator, National Service Scheme (NSS)."
+              ]
+  },
+  {
+    "disabled": false,
+    "title": "High School (CBSE)",
+    "subtitle": "Kendriya Vidyalaya, Delhi — Class X & XII",
+    "meta": "2016 – 2018",
+    "points": [
+              "Graduated with A+ grade.",
+              "Vice Sports Captain.",
+              "Regional Silver Medalist in swimming."
+              ]
   }
+
 ]
