@@ -1,0 +1,28 @@
+[
+  {
+    "disabled": true,
+    "title": "Example text",
+    "subtitle": "Example text",
+    "points": [
+      "Example text",
+      "Example text",
+      "Example text"
+    ],
+    "image": "assets/projects/example.jpg",
+    "demo": "https://example.com",
+    "source": "https://example.com"
+  },
+  {
+    "disabled": true,
+    "title": "Example text 2",
+    "subtitle": "Example text",
+    "points": [
+      "Example text",
+      "Example text",
+      "Example text"
+    ],
+    "image": "assets/projects/example.jpg",
+    "demo": "https://example.com",
+    "source": "https://example.com"
+  }
+]
