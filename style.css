@@ -961,3 +961,45 @@ body:not(.dark) .ticker-item {
     transform: translate(-50%, 6px);
   }
 }
+
+
+/* BLOG */
+/* Blog content styling */
+.blog-page #content {
+  max-width: 760px;
+  margin: 3rem auto;
+  line-height: 1.75;
+  font-size: 1.05rem;
+}
+
+.blog-page h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.blog-page h2 {
+  margin-top: 2.5rem;
+  font-size: 1.5rem;
+}
+
+.blog-page p {
+  margin: 1rem 0;
+  color: var(--text-primary);
+}
+
+.blog-page ul {
+  padding-left: 1.2rem;
+}
+
+.blog-page code {
+  background: rgba(255,255,255,0.08);
+  padding: 0.15rem 0.35rem;
+  border-radius: 4px;
+}
+
+.blog-page pre {
+  background: rgba(255,255,255,0.08);
+  padding: 1rem;
+  border-radius: 8px;
+  overflow-x: auto;
+}
