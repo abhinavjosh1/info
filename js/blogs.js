@@ -47,18 +47,13 @@ function renderFilters(data) {
 }
 
 function renderBlogs(blogs) {
-  container.innerHTML = blogs
-    .map(
-      (blog) => `
-    <a class="card"
-       href="blogs.html?post=blogs/${blog.file}"
-      <div>
-        <h3>${blog.title}</h3>
-        <p>${blog.subtitle}</p>
+  container.innerHTML = blogs.map(blog => `
+    <a class="card" href="blogs.html?post=blogs/${blog.file}">
+      <div class="card-text">
+        <h3 class="card-title">${blog.title}</h3>
+        <p class="card-subtitle">${blog.subtitle}</p>
       </div>
-      <span>${blog.date}</span>
+      <span class="card-date">${blog.date}</span>
     </a>
-  `,
-    )
-    .join("");
+  `).join("");
 }
