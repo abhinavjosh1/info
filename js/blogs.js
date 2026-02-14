@@ -44,7 +44,7 @@ function renderFilters(data) {
 function renderBlogs(blogs) {
   container.innerHTML = blogs.map(blog => `
     <a class="card"
-       href="blogs.html?post=blogs/${blog.file}">
+       href="/blogs.html?post=/blogs/${blog.file}"
       <div>
         <h3>${blog.title}</h3>
         <p>${blog.subtitle}</p>

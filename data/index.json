@@ -9,7 +9,7 @@
     "category": "Example Text"
   },
   {
-    "disabled": true,
+    "disabled": false,
     "title": "Example Text",
     "subtitle": "Example Text",
     "date": "02.02.2026",
