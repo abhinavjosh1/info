@@ -1,10 +1,11 @@
 [
   {
-    "disabled": true,
+    "disabled": false,
+    "id": "finding-research-problem",
     "title": "Example Text",
     "subtitle": "Example Text",
     "date": "02.02.2026",
-    "file": "Example Text",
+    "file": "finding_research_problem.md",
     "category": "Example Text"
   },
   {
