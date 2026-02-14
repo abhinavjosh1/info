@@ -9,7 +9,7 @@ if (contactContainer) {
     <div class="contact-grid">
       <div class="contact-item">
         <span class="label">Email</span>
-        <a href="mailto:abhinavjoshicse@email.com">abhinavjoshicse@email.com</a>
+        <a href="mailto:abhinavjoshicse@gmail.com">abhinavjoshicse@gmail.com</a>
       </div>
 
       <div class="contact-item">
