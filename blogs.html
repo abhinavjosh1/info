@@ -1,39 +1,50 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Blog</title>
-  <link rel="stylesheet" href="../style.css" />
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="blog-header">
+      <a href="/info/" class="back-link">← Back to Portfolio</a>
+      <button
+        id="themeToggle"
+        class="theme-toggle light"
+        aria-label="Toggle theme"
+      >
+        ◐
+      </button>
+    </div>
 
-  <main <main class="blog-page">
-    <a href="/info/" class="back-link">← Back to Portfolio</a>
+    <main class="blog-page">
+      <div id="content"></div>
+    </main>
 
-    <div id="content"></div>
-  </main>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="js/script.js"></script>
 
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script>
-    const params = new URLSearchParams(window.location.search);
-    const post = params.get("post");
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      const post = params.get("post");
 
-    if (!post) {
-      document.getElementById("content").innerText = "Post not found.";
-    } else {
-      fetch(`${post}`)
-        .then(res => res.text())
-        .then(md => {
-          document.getElementById("content").innerHTML =
-            marked.parse(md);
-        });
-    }
-    const theme = localStorage.getItem("theme");
-    if (theme === "dark") {
-      document.body.classList.add("dark");
-    }
-  </script>
+      if (!post) {
+        document.getElementById("content").innerText = "Post not found.";
+      } else {
+        fetch(post)
+          .then((res) => res.text())
+          .then((md) => {
+            document.getElementById("content").innerHTML = marked.parse(md);
+          });
+      }
 
-</body>
+      const theme = localStorage.getItem("theme");
+      if (theme === "dark") {
+        document.body.classList.add("dark");
+        const btn = document.getElementById("themeToggle");
+        if (btn) btn.classList.remove("light");
+      }
+    </script>
+  </body>
 </html>
