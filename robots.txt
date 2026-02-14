@@ -1,0 +1,3 @@
+User-agent: \*
+Allow: /
+Sitemap: https://abhinavjosh1.github.io/info/sitemap.xml

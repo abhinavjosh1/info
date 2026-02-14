@@ -1,5 +1,6 @@
-# How to Do a Literature Review  
-*A Practical Guide for Early PhD Students*
+# How to Do a Literature Review
+
+_A Practical Guide for Early PhD Students_
 
 ---
 
@@ -86,3 +87,8 @@ Integrating literature review into daily research practice supports problem form
 ## Conclusion
 
 For early PhD students, the literature review is both an intellectual apprenticeship and a methodological foundation. When conducted systematically and critically, it enables rigorous problem formulation, informed methodological choices, and credible positioning of novel contributions within the scholarly landscape.
+
+## Related Reading
+
+- [Finding a Research Problem](blogs.html?post=blogs/finding_research_problem.md)
+- [How to Read Research Papers Effectively](blogs.html?post=blogs/reading_papers_effectively.md)

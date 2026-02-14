@@ -3,8 +3,41 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Blog</title>
+    <meta
+      name="description"
+      content="Research methodology and practical insights for early researchers by Abhinav Joshi."
+    />
+    <title>Blog | Abhinav Joshi</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="canonical" id="canonicalLink" href="" />
+    <script type="application/ld+json" id="blogSchema"></script>
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Abhinav Joshi" />
+    <meta property="og:title" content="Blog | Abhinav Joshi" />
+    <meta
+      property="og:description"
+      content="Research methodology and PhD guidance by Abhinav Joshi."
+    />
+    <meta
+      property="og:url"
+      content="https://abhinavjosh1.github.io/info/blogs.html"
+    />
+    <meta
+      property="og:image"
+      content="https://abhinavjosh1.github.io/info/assets/og-default.png"
+    />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Blog | Abhinav Joshi" />
+    <meta
+      name="twitter:description"
+      content="Research methodology and PhD guidance by Abhinav Joshi."
+    />
+    <meta
+      name="twitter:image"
+      content="https://abhinavjosh1.github.io/info/assets/og-default.png"
+    />
   </head>
   <body>
     <div class="blog-header">
@@ -29,16 +62,73 @@
       const params = new URLSearchParams(window.location.search);
       const post = params.get("post");
 
+      // Canonical URL
+      const canonical = document.getElementById("canonicalLink");
+      if (post) {
+        canonical.href =
+          window.location.origin + window.location.pathname + "?post=" + post;
+      }
+
       if (!post) {
         document.getElementById("content").innerText = "Post not found.";
       } else {
         fetch(post)
-          .then((res) => res.text())
+          .then((res) => {
+            if (!res.ok) throw new Error("Not found");
+            return res.text();
+          })
           .then((md) => {
-            document.getElementById("content").innerHTML = marked.parse(md);
+            const html = marked.parse(md);
+            document.getElementById("content").innerHTML = html;
+
+            const h1 = document.querySelector("#content h1");
+            const title = h1 ? h1.innerText : "Blog | Abhinav Joshi";
+            const desc =
+              title +
+              " – Research methodology and PhD guidance by Abhinav Joshi.";
+
+            // Title + meta
+            document.title = title + " | Abhinav Joshi";
+            const metaDesc = document.querySelector('meta[name="description"]');
+            if (metaDesc) metaDesc.content = desc;
+
+            // Open Graph + Twitter
+            document.querySelector('meta[property="og:title"]').content = title;
+            document.querySelector('meta[property="og:description"]').content =
+              desc;
+            document.querySelector('meta[property="og:url"]').content =
+              window.location.href;
+            document.querySelector('meta[name="twitter:title"]').content =
+              title;
+            document.querySelector('meta[name="twitter:description"]').content =
+              desc;
+
+            // Schema.org
+            const schemaEl = document.getElementById("blogSchema");
+            if (schemaEl) {
+              schemaEl.textContent = JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "BlogPosting",
+                headline: title,
+                author: {
+                  "@type": "Person",
+                  name: "Abhinav Joshi",
+                },
+                publisher: {
+                  "@type": "Person",
+                  name: "Abhinav Joshi",
+                },
+                mainEntityOfPage: window.location.href,
+              });
+            }
+          })
+          .catch(() => {
+            document.getElementById("content").innerText =
+              "Failed to load post.";
           });
       }
 
+      // Apply saved theme
       const theme = localStorage.getItem("theme");
       if (theme === "dark") {
         document.body.classList.add("dark");
