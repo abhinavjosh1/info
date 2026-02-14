@@ -3,7 +3,7 @@ import path from "path";
 
 const SITE_URL = "https://abhinavjosh1.github.io/info";
 
-const dataPath = path.join(process.cwd(), "data/index.json");
+const dataPath = path.join(process.cwd(), "data/blogs.json");
 const outPath = path.join(process.cwd(), "sitemap.xml");
 
 const blogs = JSON.parse(fs.readFileSync(dataPath, "utf-8"));
