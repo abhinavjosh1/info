@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const projectsContainer = document.getElementById("projects-container");
   if (!projectsContainer) return;
 
-  fetch("data/projects.json")
+  fetch("./data/projects.json")
     .then(res => res.json())
     .then(projects => {
       projectsContainer.innerHTML = projects
